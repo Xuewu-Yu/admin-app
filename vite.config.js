@@ -9,6 +9,7 @@ export default defineConfig({
     host: 'localhost',
     port: '3000',
     hmr: true, // 热更新
+    open: true,
   },
   resolve: {
     alias: {
