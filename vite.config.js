@@ -6,7 +6,7 @@ const path = require('path')
 export default defineConfig({
   plugins: [vue()],
   server: {
-    host: '127.0.0.1',
+    host: 'localhost',
     port: '3000',
     hmr: true, // 热更新
   },
