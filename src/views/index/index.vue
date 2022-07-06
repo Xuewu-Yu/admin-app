@@ -1,3 +1,11 @@
+<!--
+ * @Author: yuxuewu 18329517675@163.com
+ * @Date: 2022-07-06 23:30:13
+ * @LastEditors: yuxuewu 18329517675@163.com
+ * @LastEditTime: 2022-07-07 01:06:11
+ * @FilePath: \admin-app\src\views\index\index.vue
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
 <template>
   <div class="wrap">
     <div class="header-wrap">
@@ -7,12 +15,41 @@
       <Nav v-model:tab="sub"></Nav>
     </div>
     <div class="content-wrap">
-      
+      <div class="content">
+        <div class="left">
+          <Carousel autoplay>
+            <div>
+              <img src="../../assets/1.png" alt="">
+            </div>
+            <div>
+              <img src="../../assets/3.png" alt="">
+            </div>
+          </Carousel>
+        </div>
+        <div class="right">
+          <Card>
+            <template #title>
+              资讯
+            </template>
+            <template #extra>
+              更多
+            </template>
+            <ul>
+              <li>1</li>
+              <li>2</li>
+              <li>3</li>
+              <li>4</li>
+            </ul>
+            <img src="../../assets/1.png" alt="">
+          </Card>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 <script setup>
 import { ref, watch } from 'vue';
+import { Carousel, Card, List } from 'ant-design-vue';
 import Nav from '@/components/Nav.vue';
 
 const sub = ref('');
@@ -32,6 +69,40 @@ console.log(sub);
     // height: 100px;
     display: flex;
     justify-content: center;
+    background: #b10100;
+    // position: absolute;
+    // top: 200px;
+    :deep(.ant-menu) {
+      background: #b10100;
+      color: #fff;
+    }
+  }
+  .content-wrap {
+    background: url('../../assets/1.png');
+    background-origin: content-box;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-attachment: scroll;
+    .content{
+      height: 800px;
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 50px;
+      .left {
+        width:900px;
+        .ant-carousel {
+          :deep(.slick-slide) {
+            height: 450px;
+            overflow: hidden;
+          }
+        }
+      }
+      .right{
+        width: 350px;
+        height: 450px;
+        overflow-y: auto;
+      }
+    }
   }
 }
 img {
