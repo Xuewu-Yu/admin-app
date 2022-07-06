@@ -1,5 +1,7 @@
 <template>
-  <Button>111</Button>
+  <div class="nav">
+    <router-link to="/helloworld">hello</router-link>
+  </div>
 </template>
 <script setup>
 import { ref } from 'vue'
@@ -12,8 +14,8 @@ defineProps({
 const count = ref(0)
 </script>
 
-<style scoped>
-a {
-  color: #42b983;
+<style lang="scss" scoped>
+.nav {
+  color: red;
 }
 </style>

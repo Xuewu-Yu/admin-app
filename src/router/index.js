@@ -1,9 +1,14 @@
 import Index from '@/views/index/index.vue';
+import HelloWorld from '@/components/HelloWorld.vue';
 export const routes = [
   {
-    path: '/index',
-    redirect: '/index',
+    path: '/',
     component: Index,
-    name: 'index',
+    name: 'Index',
+  },
+  {
+    path:'/helloworld',
+    component: HelloWorld,
+    name: 'HelloWorld',
   }
 ]
