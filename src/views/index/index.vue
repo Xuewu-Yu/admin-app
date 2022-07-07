@@ -2,7 +2,7 @@
  * @Author: yuxuewu 18329517675@163.com
  * @Date: 2022-07-06 23:30:13
  * @LastEditors: yuxuewu 18329517675@163.com
- * @LastEditTime: 2022-07-07 16:18:42
+ * @LastEditTime: 2022-07-07 19:14:02
  * @FilePath: \admin-app\src\views\index\index.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -67,20 +67,19 @@ console.log(sub);
 <style lang="scss" scoped>
 .wrap {
   .header-wrap {
-    // width: 100%;
     height: 150px;
   }
   .nav-wrap {
-    // height: 100px;
     display: flex;
     justify-content: center;
     background: #b10100;
-    // position: absolute;
-    // top: 200px;
     :deep(.ant-menu) {
       background: #b10100;
       color: #fff;
       font-size: 16px;
+      width: 1200px;
+      display: flex;
+      justify-content: center;
     }
   }
   .content-wrap {
@@ -92,7 +91,7 @@ console.log(sub);
     .content{
       width: 1200px;
       padding-top: 20px;
-      padding-bottom: 50px;
+      padding-bottom: 70px;
       margin: 0 auto;
       .wrap-1{
         display: flex;
