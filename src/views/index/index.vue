@@ -2,7 +2,7 @@
  * @Author: yuxuewu 18329517675@163.com
  * @Date: 2022-07-06 23:30:13
  * @LastEditors: yuxuewu 18329517675@163.com
- * @LastEditTime: 2022-07-07 01:06:11
+ * @LastEditTime: 2022-07-07 16:18:42
  * @FilePath: \admin-app\src\views\index\index.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -16,32 +16,37 @@
     </div>
     <div class="content-wrap">
       <div class="content">
-        <div class="left">
-          <Carousel autoplay>
-            <div>
+        <div class="wrap-1">
+          <div class="left">
+            <Carousel autoplay>
+              <div>
+                <img src="../../assets/1.png" alt="">
+              </div>
+              <div>
+                <img src="../../assets/3.png" alt="">
+              </div>
+            </Carousel>
+          </div>
+          <div class="right">
+            <Card>
+              <template #title>
+                资讯
+              </template>
+              <template #extra>
+                更多
+              </template>
+              <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+              </ul>
               <img src="../../assets/1.png" alt="">
-            </div>
-            <div>
-              <img src="../../assets/3.png" alt="">
-            </div>
-          </Carousel>
+            </Card>
+          </div>
         </div>
-        <div class="right">
-          <Card>
-            <template #title>
-              资讯
-            </template>
-            <template #extra>
-              更多
-            </template>
-            <ul>
-              <li>1</li>
-              <li>2</li>
-              <li>3</li>
-              <li>4</li>
-            </ul>
-            <img src="../../assets/1.png" alt="">
-          </Card>
+        <div class="img-bar">
+          <img src="../../assets/4.png" alt="">
         </div>
       </div>
     </div>
@@ -75,6 +80,7 @@ console.log(sub);
     :deep(.ant-menu) {
       background: #b10100;
       color: #fff;
+      font-size: 16px;
     }
   }
   .content-wrap {
@@ -84,23 +90,32 @@ console.log(sub);
     background-position: top;
     background-attachment: scroll;
     .content{
-      height: 800px;
-      display: flex;
-      justify-content: space-between;
-      padding: 20px 50px;
-      .left {
-        width:900px;
-        .ant-carousel {
-          :deep(.slick-slide) {
-            height: 450px;
-            overflow: hidden;
+      width: 1200px;
+      padding-top: 20px;
+      padding-bottom: 50px;
+      margin: 0 auto;
+      .wrap-1{
+        display: flex;
+        justify-content: space-between;
+        .left {
+          width:820px;
+          .ant-carousel {
+            :deep(.slick-slide) {
+              height: 450px;
+              overflow: hidden;
+            }
           }
         }
+        .right{
+          width: 366px;
+          height: 450px;
+          overflow-y: auto;
+          margin-left: 10px;
+        }
       }
-      .right{
-        width: 350px;
-        height: 450px;
-        overflow-y: auto;
+      .img-bar {
+        height: 167px;
+        margin: 20px 0;
       }
     }
   }
