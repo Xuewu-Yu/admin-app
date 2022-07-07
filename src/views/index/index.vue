@@ -19,6 +19,7 @@
       <Board-card v-if="sub === 'sub2'" />
       <Video-card v-if="sub === 'sub3'" />
       <NewsList v-if="sub === 'sub4'" />
+      <NewHome v-if="sub === 'sub5'" />
     </div>
   </div>
 </template>
@@ -30,7 +31,7 @@ import Home from '@/components/home.vue';
 import BoardCard from '@/components/boardCard.vue';
 import VideoCard from '@/components/videoCard.vue';
 import NewsList from '@/components/newsList.vue';
-
+import NewHome from '@/components/newHome.vue';
 
 const sub = ref('sub1');
 
