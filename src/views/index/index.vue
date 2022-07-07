@@ -2,7 +2,7 @@
  * @Author: yuxuewu 18329517675@163.com
  * @Date: 2022-07-06 23:30:13
  * @LastEditors: yuxuewu 18329517675@163.com
- * @LastEditTime: 2022-07-07 19:14:02
+ * @LastEditTime: 2022-07-07 19:56:08
  * @FilePath: \admin-app\src\views\index\index.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -15,40 +15,8 @@
       <Nav v-model:tab="sub"></Nav>
     </div>
     <div class="content-wrap">
-      <div class="content">
-        <div class="wrap-1">
-          <div class="left">
-            <Carousel autoplay>
-              <div>
-                <img src="../../assets/1.png" alt="">
-              </div>
-              <div>
-                <img src="../../assets/3.png" alt="">
-              </div>
-            </Carousel>
-          </div>
-          <div class="right">
-            <Card>
-              <template #title>
-                资讯
-              </template>
-              <template #extra>
-                更多
-              </template>
-              <ul>
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-                <li>4</li>
-              </ul>
-              <img src="../../assets/1.png" alt="">
-            </Card>
-          </div>
-        </div>
-        <div class="img-bar">
-          <img src="../../assets/4.png" alt="">
-        </div>
-      </div>
+      <Home v-if="sub === 'sub1'" />
+      <board-card v-if="sub === 'sub2'" />
     </div>
   </div>
 </template>
@@ -56,8 +24,10 @@
 import { ref, watch } from 'vue';
 import { Carousel, Card, List } from 'ant-design-vue';
 import Nav from '@/components/Nav.vue';
+import Home from '@/components/home.vue';
+import boardCard from '@/components/boardCard.vue';
 
-const sub = ref('');
+const sub = ref('sub1');
 
 watch(sub, () => {
 console.log(sub);
@@ -88,39 +58,6 @@ console.log(sub);
     background-repeat: no-repeat;
     background-position: top;
     background-attachment: scroll;
-    .content{
-      width: 1200px;
-      padding-top: 20px;
-      padding-bottom: 70px;
-      margin: 0 auto;
-      .wrap-1{
-        display: flex;
-        justify-content: space-between;
-        .left {
-          width:820px;
-          .ant-carousel {
-            :deep(.slick-slide) {
-              height: 450px;
-              overflow: hidden;
-            }
-          }
-        }
-        .right{
-          width: 366px;
-          height: 450px;
-          overflow-y: auto;
-          margin-left: 10px;
-        }
-      }
-      .img-bar {
-        height: 167px;
-        margin: 20px 0;
-      }
-    }
   }
-}
-img {
-  width: 100%;
-  height: 100%;
 }
 </style>
