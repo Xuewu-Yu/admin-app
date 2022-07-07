@@ -2,7 +2,7 @@
  * @Author: yuxuewu 18329517675@163.com
  * @Date: 2022-07-06 23:30:13
  * @LastEditors: yuxuewu 18329517675@163.com
- * @LastEditTime: 2022-07-07 19:56:08
+ * @LastEditTime: 2022-07-07 22:48:22
  * @FilePath: \admin-app\src\views\index\index.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -16,7 +16,9 @@
     </div>
     <div class="content-wrap">
       <Home v-if="sub === 'sub1'" />
-      <board-card v-if="sub === 'sub2'" />
+      <Board-card v-if="sub === 'sub2'" />
+      <Video-card v-if="sub === 'sub3'" />
+      <NewsList v-if="sub === 'sub4'" />
     </div>
   </div>
 </template>
@@ -25,7 +27,10 @@ import { ref, watch } from 'vue';
 import { Carousel, Card, List } from 'ant-design-vue';
 import Nav from '@/components/Nav.vue';
 import Home from '@/components/home.vue';
-import boardCard from '@/components/boardCard.vue';
+import BoardCard from '@/components/boardCard.vue';
+import VideoCard from '@/components/videoCard.vue';
+import NewsList from '@/components/newsList.vue';
+
 
 const sub = ref('sub1');
 
