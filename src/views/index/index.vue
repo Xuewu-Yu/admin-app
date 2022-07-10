@@ -2,7 +2,7 @@
  * @Author: yuxuewu 18329517675@163.com
  * @Date: 2022-07-06 23:30:13
  * @LastEditors: yuxuewu 18329517675@163.com
- * @LastEditTime: 2022-07-07 22:48:22
+ * @LastEditTime: 2022-07-10 12:58:06
  * @FilePath: \admin-app\src\views\index\index.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -33,7 +33,7 @@ import VideoCard from '@/components/videoCard.vue';
 import NewsList from '@/components/newsList.vue';
 import NewHome from '@/components/newHome.vue';
 
-const sub = ref('sub1');
+const sub = ref('sub5');
 
 watch(sub, () => {
 console.log(sub);
@@ -64,6 +64,7 @@ console.log(sub);
     background-repeat: no-repeat;
     background-position: top;
     background-attachment: scroll;
+    min-height: calc(100vh - 196px);
   }
 }
 </style>
