@@ -2,7 +2,7 @@
  * @Author: yuxuewu 18329517675@163.com
  * @Date: 2022-07-06 23:30:13
  * @LastEditors: yuxuewu 18329517675@163.com
- * @LastEditTime: 2022-07-10 12:58:06
+ * @LastEditTime: 2022-07-10 21:52:38
  * @FilePath: \admin-app\src\views\index\index.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -12,28 +12,37 @@
       <img src="../../assets/2.png" alt="">
     </div>
     <div class="nav-wrap">
-      <Nav v-model:tab="sub"></Nav>
+      <!-- <Nav v-model:tab="sub" :menus=""></Nav> -->
     </div>
     <div class="content-wrap">
-      <Home v-if="sub === 'sub1'" />
+      <!-- <Home v-if="sub === 'sub1'" />
       <Board-card v-if="sub === 'sub2'" />
       <Video-card v-if="sub === 'sub3'" />
-      <NewsList v-if="sub === 'sub4'" />
-      <NewHome v-if="sub === 'sub5'" />
+      <NewsList v-if="sub === 'sub4'" /> -->
+      <NewHome />
     </div>
   </div>
 </template>
 <script setup>
 import { ref, watch } from 'vue';
 import { Carousel, Card, List } from 'ant-design-vue';
-import Nav from '@/components/Nav.vue';
-import Home from '@/components/home.vue';
-import BoardCard from '@/components/boardCard.vue';
-import VideoCard from '@/components/videoCard.vue';
-import NewsList from '@/components/newsList.vue';
+// import Nav from '@/components/Nav.vue';
+// import Home from '@/components/home.vue';
+// import BoardCard from '@/components/boardCard.vue';
+// import VideoCard from '@/components/videoCard.vue';
+// import NewsList from '@/components/newsList.vue';
 import NewHome from '@/components/newHome.vue';
+import axios from 'axios';
+import { getList } from '@/utils/api.js';
 
 const sub = ref('sub5');
+
+const getListData = async () => {
+  const { code, data } = await getList({ page: 2, list_rows: 1 });
+  console.log('------', data);
+}
+getListData();
+
 
 watch(sub, () => {
 console.log(sub);

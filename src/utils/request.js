@@ -1,8 +1,6 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 // import { message } from 'ant-design-vue';
 
-import { getToken } from './auth';
-// import { resultCode } from '../enums/result';
 
 
 const service = axios.create({
@@ -14,13 +12,13 @@ const service = axios.create({
 // 请求拦截
 service.interceptors.request.use(
   config => {
-    const token = getToken();
+    // const token = getToken();
 
     // 全局统一处理请求头参数
-    if (token) {
-      // @ts-ignore
-      config.headers.Authorization = getToken();
-    }
+    // if (token) {
+    //   // @ts-ignore
+    //   config.headers.Authorization = getToken();
+    // }
     return config;
   },
   error => {
