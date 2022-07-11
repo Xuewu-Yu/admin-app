@@ -2,7 +2,7 @@
  * @Author: yuxuewu 18329517675@163.com
  * @Date: 2022-07-06 23:30:13
  * @LastEditors: yuxuewu 18329517675@163.com
- * @LastEditTime: 2022-07-10 21:54:41
+ * @LastEditTime: 2022-07-11 20:57:56
  * @FilePath: \admin-app\src\components\Nav.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -66,4 +66,16 @@ const handlePage = ({ key }) => {
 }
 </script>
 <style lang="scss" scoped>
+.ant-menu {
+  background: #b10100;
+  color: #fff;
+  font-size: 24px;
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: start;
+}
+.ant-menu-horizontal {
+  border-bottom: none;
+}
 </style>

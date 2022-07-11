@@ -2,15 +2,15 @@
  * @Author: yuxuewu 18329517675@163.com
  * @Date: 2022-07-06 23:30:13
  * @LastEditors: yuxuewu 18329517675@163.com
- * @LastEditTime: 2022-07-10 21:52:38
+ * @LastEditTime: 2022-07-11 19:23:59
  * @FilePath: \admin-app\src\views\index\index.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
 <template>
   <div class="wrap">
-    <div class="header-wrap">
+    <!-- <div class="header-wrap">
       <img src="../../assets/2.png" alt="">
-    </div>
+    </div> -->
     <div class="nav-wrap">
       <!-- <Nav v-model:tab="sub" :menus=""></Nav> -->
     </div>
@@ -51,9 +51,7 @@ console.log(sub);
 
 <style lang="scss" scoped>
 .wrap {
-  .header-wrap {
-    height: 150px;
-  }
+  height:100vh;
   .nav-wrap {
     display: flex;
     justify-content: center;
@@ -73,7 +71,7 @@ console.log(sub);
     background-repeat: no-repeat;
     background-position: top;
     background-attachment: scroll;
-    min-height: calc(100vh - 196px);
+    min-height: 100vh;
   }
 }
 </style>
