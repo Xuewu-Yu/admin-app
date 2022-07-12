@@ -35,7 +35,7 @@ import { Carousel, Card, List } from "ant-design-vue";
 </script>
 <style lang="scss" scoped>
 .content {
-  width: 1200px;
+  width: 80%;
   padding-top: 20px;
   padding-bottom: 70px;
   margin: 0 auto;

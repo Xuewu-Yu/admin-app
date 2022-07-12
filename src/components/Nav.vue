@@ -2,7 +2,7 @@
  * @Author: yuxuewu 18329517675@163.com
  * @Date: 2022-07-06 23:30:13
  * @LastEditors: yuxuewu 18329517675@163.com
- * @LastEditTime: 2022-07-11 20:57:56
+ * @LastEditTime: 2022-07-12 18:06:30
  * @FilePath: \admin-app\src\components\Nav.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -74,6 +74,35 @@ const handlePage = ({ key }) => {
   margin: 0 auto;
   display: flex;
   justify-content: start;
+  // div:hover {
+  //   border-bottom: transparent;
+  // }
+  :deep(.ant-menu-item) {
+    &:hover {
+      background: rgb(227, 23, 0);
+      color: #fff;
+      border-bottom: transparent;
+      &::after {
+        border-bottom: transparent;
+      }
+    }
+  }
+  :deep(.ant-menu-item-selected) {
+    color: #fff;
+    background: rgb(227, 23, 0);
+    &::after {
+      border-bottom: transparent;
+    }
+  }
+  :deep(.ant-menu-item-active) {
+    border-bottom: transparent;
+    color: #fff;
+    background: rgb(227, 23, 0);
+    &::after {
+      border-bottom: transparent;
+    }
+    box-sizing: border-box;
+  }
 }
 .ant-menu-horizontal {
   border-bottom: none;
