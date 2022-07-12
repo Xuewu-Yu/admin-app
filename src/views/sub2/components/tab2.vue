@@ -2,7 +2,7 @@
  * @Author: yuxuewu 18329517675@163.com
  * @Date: 2022-07-06 23:30:13
  * @LastEditors: yuxuewu 18329517675@163.com
- * @LastEditTime: 2022-07-11 21:02:29
+ * @LastEditTime: 2022-07-12 22:57:07
  * @FilePath: \admin-app\src\components\Nav.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -10,23 +10,31 @@
 <div class="wrapper">
   <Tabs v-model:activeKey="active" type="card" :tabBarGutter="0" @change="handTabs">
     <Tabs.TabPane key="1" tab="养殖户">
-      <Table :dataSource="list" :columns="columns1" :scroll="{ x: 1600 }">
-
-      </Table>
     </Tabs.TabPane>
     <Tabs.TabPane key="2" tab="养殖合作社">
-      <Table :dataSource="list" :columns="columns2">
-      </Table>
     </Tabs.TabPane>
   </Tabs>
+   <Table :dataSource="list" :columns="columns" :scroll="{ x: 'max-content' }" :pagination="false">
+   <template #bodyCell="{ column, record }">
+    <template v-if="column.key === 'poor_households'">
+      {{ record[column.key] === '1' ? '是' : '否' }}
+    </template>
+   </template>
+  </Table>
+  <div class="pagination-box">
+    <Pagination v-model:current="currentPage" :showSizeChanger="false" :total="Total" :showTotal="total => `共${total}条`" @change="getList(active)" />
+  </div>
 </div>
 </template>
 <script setup>
-import { Tabs, Table } from 'ant-design-vue';
+import { Tabs, Table, Pagination } from 'ant-design-vue';
 import { ref } from 'vue';
 import axios from 'axios';
 const active = ref('1');
 const list = ref([]);
+const currentPage = ref();
+const Total = ref(0);
+const columns = ref([]);
 const columns1 = [
   {
     title: '户名',
@@ -72,57 +80,9 @@ const columns1 = [
   },
   {
     title: '是否贫困户',
-    dataIndex: 'poor_households_text',
-    key: 'poor_households_text',
-    width: 100,
-  },
-  {
-    title: '大豆玉米带状符合种植',
-    dataIndex: 'conform_planting',
-    key: 'conform_planting',
-    width: 100,
-  },
-  {
-    title: '马铃薯',
-    dataIndex: 'potato',
-    key: 'potato',
-    width: 100,
-  },
-  {
-    title: '荞麦',
-    dataIndex: 'buckwheat',
-    key: 'buckwheat',
-    width: 100,
-  },
-  {
-    title: '糜子',
-    dataIndex: 'millet',
-    key: 'millet',
-    width: 100,
-  },
-  {
-    title: '谷子',
-    dataIndex: 'millets',
-    key: 'millets',
-    width: 100,
-  },
-  {
-    title: '高梁',
-    dataIndex: 'sorghum',
-    key: 'sorghum',
-    width: 100,
-  },
-  {
-    title: '杂豆',
-    dataIndex: 'miscellaneous_beans',
-    key: 'miscellaneous_beans',
-    width: 100,
-  },
-  {
-    title: '其它',
-    dataIndex: 'other',
-    key: 'other',
-    width: 100,
+    dataIndex: 'poor_households',
+    key: 'poor_households',
+    width: 110,
   },
 ]
 const columns2 = [
@@ -156,15 +116,29 @@ const columns2 = [
     dataIndex: 'remarks',
     key: 'remarks',
   },
+  {
+    title: '创建时间',
+    dataIndex: 'createtime',
+    key: 'createtime',
+  },
+  {
+    title: '更新时间',
+    dataIndex: 'updatetime',
+    key: 'updatetime',
+  },
 ]
 const getList = async (key) => {
-  let url = key === '1' ? '/api/Industry/autumn' : '/api/Industry/namebreedingsociety';
-  const { data } = await axios.post(url, {page: 1, list_rows: 1});
+  let url = key === '1' ? '/api/Industry/breed' : '/api/Industry/namebreedingsociety';
+  columns.value = key === '1' ? columns1 : columns2;
+  const { data } = await axios.post(url, {page: currentPage.value, list_rows: 10});
   list.value = data.data.data;
+  Total.value = data.data.total;
+  currentPage.value = data.data.current_page;
 }
-getList();
+getList('1');
 
 const handTabs = (key) => {
+  currentPage.value = 1;
   getList(key);
 };
 </script>

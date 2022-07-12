@@ -2,13 +2,13 @@
  * @Author: yuxuewu 18329517675@163.com
  * @Date: 2022-07-06 23:30:13
  * @LastEditors: yuxuewu 18329517675@163.com
- * @LastEditTime: 2022-07-11 21:01:33
+ * @LastEditTime: 2022-07-12 23:05:59
  * @FilePath: \admin-app\src\components\Nav.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
 <template>
 <div class="wrapper">
-  <Table :dataSource="list" :columns="columns" :scroll="{ x: 'max-content' }">
+  <Table :dataSource="list" :columns="columns" :scroll="{ x: 'max-content' }" :pagination="false">
     <template #bodyCell="{ column, record }">
       <template v-if="column.key === 'sex'">
         {{ record[column.key] === '0' ? '男' : '女' }}
@@ -43,17 +43,25 @@
       <template v-else-if="column.key === 'migrant_workers'">
         {{ record[column.key] === '0' ? '否' : '是' }}
       </template>
+      <template v-else-if="column.key === 'trade_union'">
+        {{ record[column.key] === '0' ? '否' : '是' }}
+      </template>
     </template>
   </Table>
+  <div class="pagination-box">
+    <Pagination v-model:current="currentPage" :showSizeChanger="false" :total="Total" :showTotal="total => `共${total}条`" @change="getList" />
+  </div>
 </div>
 </template>
 <script setup>
-import { Tabs, Table } from 'ant-design-vue';
+import { Table, Pagination } from 'ant-design-vue';
 import { ref } from 'vue';
 import axios from 'axios';
 // const router = useRouter();
-const active = ref('1');
+// const active = ref('1');
 const list = ref([]);
+const currentPage = ref();
+const Total = ref(0);
 const columns = [
   {
     title: '公民身份号码',
@@ -313,8 +321,10 @@ const columns = [
   },
 ]
 const getList = async (key) => {
-  const { data } = await axios.post('/api/Industry/laborexport', {page: 1, list_rows: 1});
+  const { data } = await axios.post('/api/Industry/laborexport', {page: currentPage.value, list_rows: 10});
   list.value = data.data.data;
+  Total.value = data.data.total;
+  currentPage.value = data.data.current_page;
 }
 getList();
 

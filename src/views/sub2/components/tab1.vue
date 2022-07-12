@@ -2,7 +2,7 @@
  * @Author: yuxuewu 18329517675@163.com
  * @Date: 2022-07-06 23:30:13
  * @LastEditors: yuxuewu 18329517675@163.com
- * @LastEditTime: 2022-07-11 21:02:28
+ * @LastEditTime: 2022-07-12 22:43:50
  * @FilePath: \admin-app\src\components\Nav.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -10,23 +10,26 @@
 <div class="wrapper">
   <Tabs v-model:activeKey="active" type="card" :tabBarGutter="0" @change="handTabs">
     <Tabs.TabPane key="1" tab="春播种植">
-      <Table :dataSource="list" :columns="columns1" :scroll="{ x: 1600 }">
-
-      </Table>
     </Tabs.TabPane>
     <Tabs.TabPane key="2" tab="冬播种植">
-      <Table :dataSource="list" :columns="columns2">
-      </Table>
     </Tabs.TabPane>
   </Tabs>
+  <Table :dataSource="list" :columns="columns" :scroll="{ x: 'max-content' }" :pagination="false">
+  </Table>
+  <div class="pagination-box">
+    <Pagination v-model:current="currentPage" :showSizeChanger="false" :total="Total" :showTotal="total => `共${total}条`" @change="getList(active)" />
+  </div>
 </div>
 </template>
 <script setup>
-import { Tabs, Table } from 'ant-design-vue';
+import { Tabs, Table, Pagination } from 'ant-design-vue';
 import { ref } from 'vue';
 import axios from 'axios';
 const active = ref('1');
 const list = ref([]);
+const currentPage = ref();
+const Total = ref(0);
+const columns = ref([]);
 const columns1 = [
   {
     title: '村名',
@@ -56,7 +59,7 @@ const columns1 = [
     title: '春播粮食面积合计',
     dataIndex: 'total_area',
     key: 'total_area',
-    width: 100,
+    width: 150,
   },
   {
     title: '春小麦',
@@ -80,7 +83,7 @@ const columns1 = [
     title: '大豆玉米带状符合种植',
     dataIndex: 'conform_planting',
     key: 'conform_planting',
-    width: 100,
+    width: 180,
   },
   {
     title: '马铃薯',
@@ -164,12 +167,16 @@ const columns2 = [
 ]
 const getList = async (key) => {
   let url = key === '1' ? '/api/Industry/plant' : '/api/Industry/autumn';
-  const { data } = await axios.post(url, {page: 1, list_rows: 1});
+  columns.value = key === '1' ? columns1 : columns2;
+  const { data } = await axios.post(url, {page: currentPage.value, list_rows: 10});
   list.value = data.data.data;
+  Total.value = data.data.total;
+  currentPage.value = data.data.current_page;
 }
-getList();
+getList('1');
 
 const handTabs = (key) => {
+  currentPage.value = 1;
   getList(key);
 };
 </script>

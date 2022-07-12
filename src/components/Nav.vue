@@ -2,12 +2,12 @@
  * @Author: yuxuewu 18329517675@163.com
  * @Date: 2022-07-06 23:30:13
  * @LastEditors: yuxuewu 18329517675@163.com
- * @LastEditTime: 2022-07-12 18:06:30
+ * @LastEditTime: 2022-07-13 01:04:40
  * @FilePath: \admin-app\src\components\Nav.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
 <template>
-  <Menu mode="horizontal" @click="handlePage" v-model:selectedKeys="subModel">
+  <Menu mode="horizontal" @click="handlePage" v-model:selectedKeys="subModel" theme="dark">
     <NavItem v-for="item in menus" :key="item.key" :item="item"></NavItem>
   </Menu>
 </template>
@@ -21,7 +21,7 @@ const props = defineProps({
   tab: { type: Array, default: () => [] },
   menus: { type: Array, default: () => [] },
 })
-const emit = defineEmits(['update:tab']);
+const emit = defineEmits(['update:tab','handlePage']);
 const subModel = useVModel(props, 'tab', emit);
 
 // const menus = [
@@ -62,12 +62,14 @@ const subModel = useVModel(props, 'tab', emit);
 // ];
 const handlePage = ({ key }) => {
   // router.push()
-  subModel.value = key;
+  // console.log(key)
+  // subModel.value = key;
+  emit('handlePage', key);
 }
 </script>
 <style lang="scss" scoped>
 .ant-menu {
-  background: #b10100;
+  background: #b10100 !important;
   color: #fff;
   font-size: 24px;
   width: 80%;
@@ -77,32 +79,49 @@ const handlePage = ({ key }) => {
   // div:hover {
   //   border-bottom: transparent;
   // }
-  :deep(.ant-menu-item) {
-    &:hover {
-      background: rgb(227, 23, 0);
-      color: #fff;
-      border-bottom: transparent;
-      &::after {
-        border-bottom: transparent;
-      }
-    }
+  // :deep(.ant-menu-item) {
+  //   &:hover {
+  //     background: rgb(227, 23, 0);
+  //     color: #fff;
+  //     border-bottom: transparent;
+  //     &::after {
+  //       border-bottom: transparent;
+  //     }
+  //   }
+  //   &::after {
+  //     border-bottom: transparent;
+  //   }
+  // }
+  // :deep(.ant-menu-item-selected) {
+  //   color: #fff !important;
+  //   background: rgb(227, 23, 0);
+  //   &::after {
+  //     border-bottom: transparent;
+  //   }
+  // }
+  // :deep(.ant-menu-item-active) {
+  //   border-bottom: transparent;
+  //   color: #fff !important;
+  //   background: rgb(227, 23, 0);
+  //   &::after {
+  //     border-bottom: transparent;
+  //   }
+  //   box-sizing: border-box;
+  // }
+  // :deep(.ant-menu-horizontal) {
+  //   border-bottom: transparent;
+  // }
+  
+  :deep(.ant-menu-dark) {
+    background-color: rgb(227, 23, 0) !important;
   }
   :deep(.ant-menu-item-selected) {
-    color: #fff;
-    background: rgb(227, 23, 0);
-    &::after {
-      border-bottom: transparent;
-    }
+    background-color: rgb(227, 23, 0) !important;
   }
   :deep(.ant-menu-item-active) {
-    border-bottom: transparent;
-    color: #fff;
-    background: rgb(227, 23, 0);
-    &::after {
-      border-bottom: transparent;
-    }
-    box-sizing: border-box;
+    background-color: rgb(227, 23, 0) !important;
   }
+  
 }
 .ant-menu-horizontal {
   border-bottom: none;

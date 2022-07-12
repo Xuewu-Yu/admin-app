@@ -1,4 +1,3 @@
-<!-- 用水保障 -->
 <template>
   <div class="wrapper" v-html="html"></div>
 </template>
@@ -6,7 +5,7 @@
 import axios from 'axios';
 import { ref } from 'vue';
 const html = ref('');
-axios.post('/api/build/water').then(res => {
+axios.post('/api/service/culture').then(res => {
 
 });
 </script>

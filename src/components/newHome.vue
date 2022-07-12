@@ -2,7 +2,7 @@
  * @Author: yuxuewu 18329517675@163.com
  * @Date: 2022-07-07 22:45:47
  * @LastEditors: yuxuewu 18329517675@163.com
- * @LastEditTime: 2022-07-12 17:15:45
+ * @LastEditTime: 2022-07-12 23:13:35
  * @FilePath: \admin-app\src\components\newsList.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -24,7 +24,7 @@
       </div>
     </div>
     <div class="dot">
-      <div>
+      <div @click="router.push('/publicservice')">
         <span>公共服务</span>
       </div>
     </div>
@@ -192,7 +192,7 @@ const router = useRouter();
       width: 100px;
       height: 100px;
       border-radius: 50%;
-      animation: 2s scale 0s steps(40) 1 forwards;
+      animation: 2s scale 0s steps(20) 1 forwards;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -208,7 +208,7 @@ const router = useRouter();
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  animation: 2s pop 0s steps(40) 1 forwards;
+  animation: 2s pop 0s steps(20) 1 forwards;
   display: flex;
   justify-content: center;
   align-items: center;
