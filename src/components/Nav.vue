@@ -2,7 +2,7 @@
  * @Author: yuxuewu 18329517675@163.com
  * @Date: 2022-07-06 23:30:13
  * @LastEditors: yuxuewu 18329517675@163.com
- * @LastEditTime: 2022-07-13 01:04:40
+ * @LastEditTime: 2022-07-13 22:58:44
  * @FilePath: \admin-app\src\components\Nav.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -15,14 +15,20 @@
 import { Menu, SubMenu } from "ant-design-vue";
 import NavItem from "./NavItem.vue";
 import { useRouter } from 'vue-router';
-// const router = useRouter();
 import { useVModel } from '@vueuse/core';
+const router = useRouter();
 const props = defineProps({
   tab: { type: Array, default: () => [] },
   menus: { type: Array, default: () => [] },
 })
 const emit = defineEmits(['update:tab','handlePage']);
 const subModel = useVModel(props, 'tab', emit);
+const menu = useVModel(props, 'menus');
+menu.value.unshift({
+  name: '首页',
+  path: '/',
+  key: 'index',
+})
 
 // const menus = [
 //   {
@@ -60,11 +66,12 @@ const subModel = useVModel(props, 'tab', emit);
 //     path: '/ruralgovernance'
 //   },
 // ];
-const handlePage = ({ key }) => {
-  // router.push()
-  // console.log(key)
-  // subModel.value = key;
-  emit('handlePage', key);
+const handlePage = ({ key, name }) => {
+  if (key === 'index') {
+    router.push('/');
+  } else {
+    emit('handlePage', key);
+  }
 }
 </script>
 <style lang="scss" scoped>
@@ -76,42 +83,6 @@ const handlePage = ({ key }) => {
   margin: 0 auto;
   display: flex;
   justify-content: start;
-  // div:hover {
-  //   border-bottom: transparent;
-  // }
-  // :deep(.ant-menu-item) {
-  //   &:hover {
-  //     background: rgb(227, 23, 0);
-  //     color: #fff;
-  //     border-bottom: transparent;
-  //     &::after {
-  //       border-bottom: transparent;
-  //     }
-  //   }
-  //   &::after {
-  //     border-bottom: transparent;
-  //   }
-  // }
-  // :deep(.ant-menu-item-selected) {
-  //   color: #fff !important;
-  //   background: rgb(227, 23, 0);
-  //   &::after {
-  //     border-bottom: transparent;
-  //   }
-  // }
-  // :deep(.ant-menu-item-active) {
-  //   border-bottom: transparent;
-  //   color: #fff !important;
-  //   background: rgb(227, 23, 0);
-  //   &::after {
-  //     border-bottom: transparent;
-  //   }
-  //   box-sizing: border-box;
-  // }
-  // :deep(.ant-menu-horizontal) {
-  //   border-bottom: transparent;
-  // }
-  
   :deep(.ant-menu-dark) {
     background-color: rgb(227, 23, 0) !important;
   }

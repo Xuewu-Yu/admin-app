@@ -2,7 +2,7 @@
  * @Author: yuxuewu 18329517675@163.com
  * @Date: 2022-07-06 23:30:13
  * @LastEditors: yuxuewu 18329517675@163.com
- * @LastEditTime: 2022-07-13 21:12:39
+ * @LastEditTime: 2022-07-13 22:25:11
  * @FilePath: \admin-app\src\components\Nav.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -91,7 +91,7 @@ const handlePage = ({ key }) => {
     background-position: top;
     background-attachment: scroll;
     min-height: calc(100vh - 196px);
-    background-size: 100%;
+    background-size: 100% 100%;
   }
 }
 </style>
