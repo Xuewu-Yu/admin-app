@@ -2,9 +2,9 @@
  * @Author: yuxuewu 18329517675@163.com
  * @Date: 2022-07-06 23:30:13
  * @LastEditors: yuxuewu 18329517675@163.com
- * @LastEditTime: 2022-07-13 22:52:27
+ * @LastEditTime: 2022-07-13 23:46:07
  * @FilePath: \admin-app\src\components\Nav.vue
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @Description: 乡村建设
 -->
 <template>
 <div class="wrap">
@@ -16,7 +16,7 @@
     </div>
     <div class="content-wrap">
       <div class="wrapper" v-if="listTotal == 1" v-html="html"></div>
-      <NewsList v-if="listTotal > 1" :data="list" />
+      <NewsList v-if="listTotal > 1" v-model:load="loading" v-model:data="list" v-model:showLoad="showLoad" @loadMore="loadMore" />
     </div>
   </div>
 </template>
@@ -63,13 +63,17 @@ const initData = async (url) => {
   } else {
     list.value = data;
   }
-  // list.value.push(...data);
   listTotal.value = total;
 }
-initData(menus[1].url);
+initData(menus[0].url);
 const handlePage = (key) => {
   const item = menus.find(item => item.key === key);
   initData(item.url);
+}
+const loading = ref(false);
+const showLoad = ref(false);
+const loadMore = async () => {
+  loading.value = true;
 }
 </script>
 <style lang="scss" scoped>
