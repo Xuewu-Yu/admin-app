@@ -7,3 +7,22 @@
   margin-top: 10px;
   text-align: right;
 }
+.wrap {
+  .header-wrap {
+    height: 150px;
+  }
+  .nav-wrap {
+    display: flex;
+    justify-content: center;
+    background: #b10100;
+  }
+  .content-wrap {
+    background: url('../../assets/1.png');
+    background-origin: content-box;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-attachment: scroll;
+    min-height: calc(100vh - 196px);
+    background-size: 100%;
+  }
+}
