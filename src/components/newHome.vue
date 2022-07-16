@@ -2,7 +2,7 @@
  * @Author: yuxuewu 18329517675@163.com
  * @Date: 2022-07-07 22:45:47
  * @LastEditors: yuxuewu 18329517675@163.com
- * @LastEditTime: 2022-07-13 21:06:06
+ * @LastEditTime: 2022-07-16 14:36:38
  * @FilePath: \admin-app\src\components\newsList.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -89,7 +89,7 @@ const router = useRouter();
 }
 .dot {
   position: absolute;
-  top: 450px;
+  top: calc(60% - 75px);
   left: 50%;
   margin-top: -12px;
   margin-left: -12px;
@@ -181,16 +181,17 @@ const router = useRouter();
 }
 .core {
     position: absolute;
-    top: 450px;
+    top: calc(60% - 75px);
     left: 50%;
     margin-top: -12px;
     margin-left: -12px;
     color: #fff;
     transform: translate(0) rotate(0);
+    // transform: translate(-37px, -43px);
     div {
       position: absolute;
-      width: 100px;
-      height: 100px;
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
       animation: 1s scale 0s steps(20) 1 forwards;
       display: flex;
@@ -200,15 +201,16 @@ const router = useRouter();
       text-align: center;
       cursor: default;
       span {
-        width: 66px;
+        width: 96px;
         font-weight: 600;
+        font-size: 24px;
       }
     }
 }
 .dot div {
   position: absolute;
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   animation: 1s pop 0s steps(20) 1 forwards;
   display: flex;
@@ -216,7 +218,7 @@ const router = useRouter();
   align-items: center;
   cursor: pointer;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 28px;
 }
 body,
 html {
@@ -247,10 +249,10 @@ html {
 }
 @keyframes scale {
   0% {
-    transform: translate(-37px, -43px) scale(0);
+    transform: translate(-64px, -72px) scale(0);
   }
   100% {
-    transform: translate(-37px, -43px) scale(1);
+    transform: translate(-64px, -72px) scale(1);
   }
 }
 </style>
