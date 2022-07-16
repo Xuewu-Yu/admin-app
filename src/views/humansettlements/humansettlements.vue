@@ -2,14 +2,14 @@
  * @Author: yuxuewu 18329517675@163.com
  * @Date: 2022-07-06 23:30:13
  * @LastEditors: yuxuewu 18329517675@163.com
- * @LastEditTime: 2022-07-14 01:16:22
+ * @LastEditTime: 2022-07-16 16:11:30
  * @FilePath: \admin-app\src\components\Nav.vue
  * @Description: 人居环境
 -->
 <template>
 <div class="wrap">
     <div class="header-wrap">
-      <img src="../../assets/2.png" alt="">
+      <img src="http://fangkang.top/uploads/20220716/2deee211f6d6487de1feebf8249ff03f.png" alt="">
     </div>
     <div class="nav-wrap">
       <Nav :menus="menus" v-model:tab="subModel" @handlePage="handlePage"></Nav>

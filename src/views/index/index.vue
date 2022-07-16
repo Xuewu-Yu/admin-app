@@ -2,7 +2,7 @@
  * @Author: yuxuewu 18329517675@163.com
  * @Date: 2022-07-06 23:30:13
  * @LastEditors: yuxuewu 18329517675@163.com
- * @LastEditTime: 2022-07-13 22:26:16
+ * @LastEditTime: 2022-07-16 16:10:02
  * @FilePath: \admin-app\src\views\index\index.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -58,7 +58,7 @@ console.log(sub);
     }
   }
   .content-wrap {
-    background: url('../../assets/1.png');
+    background: url('http://fangkang.top/uploads/20220716/2415729556609fe85a4e6bd4ac25723b.jpg');
     background-origin: content-box;
     background-repeat: no-repeat;
     background-position: top;
