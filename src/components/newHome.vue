@@ -2,7 +2,7 @@
  * @Author: yuxuewu 18329517675@163.com
  * @Date: 2022-07-07 22:45:47
  * @LastEditors: yuxuewu 18329517675@163.com
- * @LastEditTime: 2022-07-17 14:12:35
+ * @LastEditTime: 2022-07-17 18:47:20
  * @FilePath: \admin-app\src\components\newsList.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -72,20 +72,12 @@ const router = useRouter();
 //   }
 // }
 .container {
-  // position: absolute;
-  // top: 50%;
-  // left: 50%;
-  // width: 100%;
-  // height: 100%;
   width: 1200px;
-  // height: 600px;
-  // padding-top: 20px;
-  // padding-bottom: 70px;
   margin: 0 auto;
-  // transform: translate(-50%, -50%);
   background: transparent;
   position: relative;
   height: 100vh;
+  font-family: 'KaiTi';
 }
 .dot {
   position: absolute;
