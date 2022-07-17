@@ -2,7 +2,7 @@
  * @Author: yuxuewu 18329517675@163.com
  * @Date: 2022-07-06 23:30:13
  * @LastEditors: yuxuewu 18329517675@163.com
- * @LastEditTime: 2022-07-16 16:12:08
+ * @LastEditTime: 2022-07-17 16:56:39
  * @FilePath: \admin-app\src\components\Nav.vue
  * @Description: 乡村治理
 -->
@@ -46,7 +46,7 @@ const menus = [
     url: '',
   },
   {
-    name: "新风陪树",
+    name: "新风培树",
     key: "3",
     url: '',
   },

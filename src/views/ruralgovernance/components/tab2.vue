@@ -2,7 +2,7 @@
  * @Author: yuxuewu 18329517675@163.com
  * @Date: 2022-07-14 23:40:58
  * @LastEditors: yuxuewu 18329517675@163.com
- * @LastEditTime: 2022-07-15 00:29:53
+ * @LastEditTime: 2022-07-17 14:18:59
  * @FilePath: \admin-app\src\views\ruralgovernance\components\tab2.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -45,15 +45,6 @@ const html = ref('');
 const columns = ref([]);
 const currentPage = ref(1);
 const Total = ref(0);
-// 安全监控 ： api/Rural/safety_monitor
-// 疫情防控 ：api/Rural/safety_control
-// 疫情防控-负责人 ： api/Rural/safety_controlperson
-// 疫情防控-应急物资 ： api/Rural/safety_controlmaterial
-// 应急管理 : api/Rural/safety_meet
-// 村规民约 : api/Rural/villager_covenant
-// 文明实战-志愿服务 : api/Rural/tree_civilizationservice
-// 移风易俗-正气银行 : api/Rural/tree_changebank
-// 先进典型 : api/Rural/tree_advanced
 const tabs = [
   {
     title: '安全监控',
