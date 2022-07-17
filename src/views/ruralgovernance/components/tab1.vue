@@ -2,7 +2,7 @@
  * @Author: yuxuewu 18329517675@163.com
  * @Date: 2022-07-14 23:40:58
  * @LastEditors: yuxuewu 18329517675@163.com
- * @LastEditTime: 2022-07-15 00:35:52
+ * @LastEditTime: 2022-07-17 19:14:48
  * @FilePath: \admin-app\src\views\ruralgovernance\components\tab2.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -15,10 +15,11 @@
   >
     <Tabs.TabPane v-for="x in tabs" :key="x.key" :tab="x.title"></Tabs.TabPane>
   </Tabs>
-  <div v-html="html"></div>
+  <div v-if="html" v-html="html"></div>
+  <Empty :description="'暂无数据'" v-else />
 </template>
 <script setup>
-import { Table, Pagination, Tabs } from "ant-design-vue";
+import { Table, Pagination, Tabs, Empty } from "ant-design-vue";
 import { ref } from 'vue';
 import axios from '@/utils/request';
 const active = ref('1');
