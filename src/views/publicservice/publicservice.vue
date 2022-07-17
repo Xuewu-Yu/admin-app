@@ -2,19 +2,19 @@
  * @Author: yuxuewu 18329517675@163.com
  * @Date: 2022-07-06 23:30:13
  * @LastEditors: yuxuewu 18329517675@163.com
- * @LastEditTime: 2022-07-16 16:11:55
+ * @LastEditTime: 2022-07-18 00:48:00
  * @FilePath: \admin-app\src\components\Nav.vue
  * @Description: 特色产业
 -->
 <template>
 <div class="wrap">
     <div class="header-wrap">
-      <img src="http://fangkang.top/uploads/20220716/2deee211f6d6487de1feebf8249ff03f.png" alt="">
+      <img :src="banner.top" alt="">
     </div>
     <div class="nav-wrap">
       <Nav :menus="menus" v-model:tab="subModel"></Nav>
     </div>
-    <div class="content-wrap">
+    <div class="content-wrap" :style="{ backgroundImage: `url(${banner.banner})` }">
       <Tab1 v-if="subModel.includes('1')" />
       <Tab2 v-else-if="subModel.includes('2')" />
       <Tab3 v-else-if="subModel.includes('3')" />
@@ -32,6 +32,7 @@ import Tab2 from './components/tab2.vue';
 import Tab3 from './components/tab3.vue';
 import Tab4 from './components/tab4.vue';
 import Tab5 from './components/tab5.vue';
+import banner from '@/utils/banner';
 // const router = useRouter();
 const subModel = ref(['1']);
 

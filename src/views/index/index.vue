@@ -2,7 +2,7 @@
  * @Author: yuxuewu 18329517675@163.com
  * @Date: 2022-07-06 23:30:13
  * @LastEditors: yuxuewu 18329517675@163.com
- * @LastEditTime: 2022-07-16 16:10:02
+ * @LastEditTime: 2022-07-18 00:51:47
  * @FilePath: \admin-app\src\views\index\index.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -14,7 +14,7 @@
     <div class="nav-wrap">
       <!-- <Nav v-model:tab="sub" :menus=""></Nav> -->
     </div>
-    <div class="content-wrap">
+    <div class="content-wrap" :style="{ backgroundImage: `url(${banner.banner})` }">
       <!-- <Home v-if="sub === 'sub1'" />
       <Board-card v-if="sub === 'sub2'" />
       <Video-card v-if="sub === 'sub3'" />
@@ -33,6 +33,7 @@ import { Carousel, Card, List } from 'ant-design-vue';
 // import NewsList from '@/components/newsList.vue';
 import NewHome from '@/components/newHome.vue';
 import axios from 'axios';
+import banner from '@/utils/banner';
 
 const sub = ref('sub5');
 
@@ -58,7 +59,7 @@ console.log(sub);
     }
   }
   .content-wrap {
-    background: url('http://fangkang.top/uploads/20220716/2415729556609fe85a4e6bd4ac25723b.jpg');
+    // background: url('https://27838991.s61i.faiusr.com/2/AD0Ij5SjDRACGAAg8MzmiQYouobRUTCADziJFA.jpg');
     background-origin: content-box;
     background-repeat: no-repeat;
     background-position: top;

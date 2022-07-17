@@ -2,19 +2,19 @@
  * @Author: yuxuewu 18329517675@163.com
  * @Date: 2022-07-06 23:30:13
  * @LastEditors: yuxuewu 18329517675@163.com
- * @LastEditTime: 2022-07-17 16:56:39
+ * @LastEditTime: 2022-07-18 00:49:05
  * @FilePath: \admin-app\src\components\Nav.vue
  * @Description: 乡村治理
 -->
 <template>
 <div class="wrap">
     <div class="header-wrap">
-      <img src="http://fangkang.top/uploads/20220716/2deee211f6d6487de1feebf8249ff03f.png" alt="">
+      <img :src="banner.top" alt="">
     </div>
-    <div class="nav-wrap">
+    <div class="nav-wrap" :style="{ backgroundImage: `url(${banner.banner})` }">
       <Nav :menus="menus" v-model:tab="subModel" @handlePage="handlePage"></Nav>
     </div>
-    <div class="content-wrap">
+    <div class="content-wrap" :style="{ backgroundImage: `url(${banner.banner})` }">
       <!-- <div class="wrapper" v-html="html"></div> -->
       <div class="wrapper">
         <Tab1 v-if="subModel.includes('1')" />
@@ -31,6 +31,7 @@ import axios from 'axios';
 import Tab1 from './components/tab1.vue'
 import Tab2 from './components/tab2.vue'
 import Tab3 from './components/tab3.vue'
+import banner from '@/utils/banner';
 const subModel = ref(['1']);
 const html = ref('');
 

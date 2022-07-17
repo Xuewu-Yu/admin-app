@@ -2,7 +2,7 @@
  * @Author: yuxuewu 18329517675@163.com
  * @Date: 2022-07-07 22:45:47
  * @LastEditors: yuxuewu 18329517675@163.com
- * @LastEditTime: 2022-07-17 18:47:20
+ * @LastEditTime: 2022-07-18 00:52:45
  * @FilePath: \admin-app\src\components\newsList.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -87,12 +87,12 @@ const router = useRouter();
   margin-left: -12px;
 }
 .dot:nth-child(1) {
-  transform: translate(12px) rotate(135deg);
+  transform: translate(12px) rotate(125deg);
 }
 .dot:nth-child(1) div {
   background-color: #f0d175;
   span {
-    transform: rotate(-135deg);
+    transform: rotate(-125deg);
   }
   // -webkit-filter: blur(6px);
   // -moz-filter: blur(15px);
@@ -101,13 +101,13 @@ const router = useRouter();
   // filter: blur(2px);
 }
 .dot:nth-child(2) {
-  transform: translate(12px) rotate(195deg);
+  transform: translate(12px) rotate(185deg);
 
 }
 .dot:nth-child(2) div {
   background-color: #b3f075;
   span {
-    transform: rotate(-195deg);
+    transform: rotate(-185deg);
   }
   // -webkit-filter: blur(6px);
   // -moz-filter: blur(15px);
@@ -116,12 +116,12 @@ const router = useRouter();
   // filter: blur(2px);
 }
 .dot:nth-child(3) {
-  transform: translate(12px) rotate(255deg);
+  transform: translate(12px) rotate(245deg);
 }
 .dot:nth-child(3) div {
   background-color: #75f094;
   span {
-    transform: rotate(-255deg);
+    transform: rotate(-245deg);
   }
   // -webkit-filter: blur(6px);
   // -moz-filter: blur(15px);
@@ -130,12 +130,12 @@ const router = useRouter();
   // filter: blur(2px);
 }
 .dot:nth-child(4) {
-  transform: translate(12px) rotate(315deg);
+  transform: translate(12px) rotate(305deg);
 }
 .dot:nth-child(4) div {
   background-color: #75f0f0;
   span {
-    transform: rotate(-315deg);
+    transform: rotate(-305deg);
   }
   // -webkit-filter: blur(6px);
   // -moz-filter: blur(15px);
@@ -144,12 +144,12 @@ const router = useRouter();
   // filter: blur(2px);
 }
 .dot:nth-child(5) {
-  transform: translate(12px) rotate(375deg);
+  transform: translate(12px) rotate(365deg);
 }
 .dot:nth-child(5) div {
   background-color: #7594f0;
   span {
-    transform: rotate(-375deg);
+    transform: rotate(-365deg);
   }
   // -webkit-filter: blur(6px);
   // -moz-filter: blur(15px);
@@ -158,12 +158,12 @@ const router = useRouter();
   // filter: blur(2px);
 }
 .dot:nth-child(6) {
-  transform: translate(12px) rotate(435deg);
+  transform: translate(12px) rotate(425deg);
 }
 .dot:nth-child(6) div {
   background-color: #b275f0;
   span {
-    transform: rotate(-435deg);
+    transform: rotate(-425deg);
   }
   // -webkit-filter: blur(6px);
   // -moz-filter: blur(15px);
@@ -236,7 +236,7 @@ html {
     transform: translateX(50px);
   }
   100% {
-    transform: translateX(100px);
+    transform: translateX(130px);
   }
 }
 @keyframes scale {

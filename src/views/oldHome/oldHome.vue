@@ -2,7 +2,7 @@
  * @Author: yuxuewu 18329517675@163.com
  * @Date: 2022-07-06 23:30:13
  * @LastEditors: yuxuewu 18329517675@163.com
- * @LastEditTime: 2022-07-16 16:19:08
+ * @LastEditTime: 2022-07-18 00:19:11
  * @FilePath: \admin-app\src\components\Nav.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -85,7 +85,7 @@ const handlePage = ({ key }) => {
     background: #b10100;
   }
   .content-wrap {
-    background: url('http://fangkang.top/uploads/20220716/2415729556609fe85a4e6bd4ac25723b.jpg');
+    background: url('https://27838991.s61i.faiusr.com/2/AD0Ij5SjDRACGAAg8MzmiQYouobRUTCADziJFA.jpg');
     background-origin: content-box;
     background-repeat: no-repeat;
     background-position: top;
