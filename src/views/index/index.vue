@@ -2,7 +2,7 @@
  * @Author: yuxuewu 18329517675@163.com
  * @Date: 2022-07-06 23:30:13
  * @LastEditors: yuxuewu 18329517675@163.com
- * @LastEditTime: 2022-07-18 11:36:29
+ * @LastEditTime: 2022-07-18 16:43:46
  * @FilePath: \admin-app\src\views\index\index.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -19,7 +19,8 @@
       <Board-card v-if="sub === 'sub2'" />
       <Video-card v-if="sub === 'sub3'" />
       <NewsList v-if="sub === 'sub4'" /> -->
-      <NewHome />
+      <!-- <NewHome /> -->
+      <NewIndex />
     </div>
   </div>
 </template>
@@ -32,9 +33,9 @@ import { Carousel, Card, List } from 'ant-design-vue';
 // import VideoCard from '@/components/videoCard.vue';
 // import NewsList from '@/components/newsList.vue';
 import NewHome from '@/components/newHome.vue';
+import NewIndex from './newIndex.vue';
 import axios from 'axios';
 import banner from '@/utils/banner';
-console.log(banner)
 
 const sub = ref('sub5');
 
