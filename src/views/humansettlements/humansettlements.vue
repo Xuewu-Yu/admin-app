@@ -2,19 +2,19 @@
  * @Author: yuxuewu 18329517675@163.com
  * @Date: 2022-07-06 23:30:13
  * @LastEditors: yuxuewu 18329517675@163.com
- * @LastEditTime: 2022-07-18 00:45:14
+ * @LastEditTime: 2022-07-18 22:01:07
  * @FilePath: \admin-app\src\components\Nav.vue
  * @Description: 人居环境
 -->
 <template>
 <div class="wrap">
     <div class="header-wrap">
-      <img :src="banner.top" alt="">
+      <img src="@/assets/2.png" alt="">
     </div>
     <div class="nav-wrap">
       <Nav :menus="menus" v-model:tab="subModel" @handlePage="handlePage"></Nav>
     </div>
-    <div class="content-wrap" :style="{ backgroundImage: `url(${banner.banner})` }">
+    <div class="content-wrap">
       <div v-if="!isTable" class="wrapper" v-html="html"></div>
       <template v-if="isTable">
         <div class="wrapper">
@@ -38,7 +38,6 @@ import { Table, Pagination, Tabs } from 'ant-design-vue';
 import { ref } from 'vue';
 import axios from '@/utils/request';
 import Nav from "@/components/Nav.vue";
-import banner from '@/utils/banner';
 const subModel = ref(['1']);
 const html = ref('');
 const list = ref([]);
