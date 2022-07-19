@@ -2,7 +2,7 @@
  * @Author: yuxuewu 18329517675@163.com
  * @Date: 2022-07-06 23:30:13
  * @LastEditors: yuxuewu 18329517675@163.com
- * @LastEditTime: 2022-07-18 22:04:49
+ * @LastEditTime: 2022-07-19 21:07:29
  * @FilePath: \admin-app\src\components\Nav.vue
  * @Description: 乡村治理
 -->
@@ -10,6 +10,7 @@
 <div class="wrap">
     <div class="header-wrap">
       <img src="@/assets/2.png" alt="">
+      <Breadcrumb />
     </div>
     <div class="nav-wrap">
       <Nav :menus="menus" v-model:tab="subModel" @handlePage="handlePage"></Nav>
@@ -31,6 +32,7 @@ import axios from 'axios';
 import Tab1 from './components/tab1.vue'
 import Tab2 from './components/tab2.vue'
 import Tab3 from './components/tab3.vue'
+import Breadcrumb from "@/components/breadcrumb.vue";
 const subModel = ref(['1']);
 const html = ref('');
 

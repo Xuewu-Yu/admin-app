@@ -2,7 +2,7 @@
  * @Author: yuxuewu 18329517675@163.com
  * @Date: 2022-07-06 23:30:13
  * @LastEditors: yuxuewu 18329517675@163.com
- * @LastEditTime: 2022-07-18 22:02:12
+ * @LastEditTime: 2022-07-19 21:07:48
  * @FilePath: \admin-app\src\components\Nav.vue
  * @Description: 特色产业
 -->
@@ -10,6 +10,7 @@
 <div class="wrap">
     <div class="header-wrap">
       <img src="@/assets/2.png" alt="">
+      <Breadcrumb />
     </div>
     <div class="nav-wrap">
       <Nav :menus="menus" v-model:tab="subModel"></Nav>
@@ -32,6 +33,7 @@ import Tab2 from './components/tab2.vue';
 import Tab3 from './components/tab3.vue';
 import Tab4 from './components/tab4.vue';
 import Tab5 from './components/tab5.vue';
+import Breadcrumb from "@/components/breadcrumb.vue";
 // const router = useRouter();
 const subModel = ref(['1']);
 
