@@ -1,28 +1,35 @@
 <template>
   <div class="wrap">
-    <Breadcrumb :routes="routes.filter(i => i.title)">
-      <template #itemRender="{ route }">
+    <Breadcrumb >
+      <!-- <template #itemRender="{ route }">
         <template v-if="route.title">
           <template v-if="route.path === '/'">
             <HomeOutlined />
             <router-link :to="route.path">{{ route.title }}</router-link>
           </template>
           <template v-else>
-            <router-link :to="route.path">{{ route.title }}</router-link>
+            <router-link :class="{active: routeItem.path === route.path}" :to="route.path">{{ route.title }}</router-link>
           </template>
         </template>
-      </template>
+      </template> -->
+      <Breadcrumb.Item>
+        <HomeOutlined />
+        <router-link to="/">首页</router-link>
+      </Breadcrumb.Item>
+      <Breadcrumb.Item>
+        <span>{{ name }}</span>
+      </Breadcrumb.Item>
     </Breadcrumb>
   </div>
 </template>
 <script setup>
 import { Breadcrumb } from 'ant-design-vue';
 import { HomeOutlined } from '@ant-design/icons-vue';
-// import { useRoute } from 'vue-router';
-import { reactive } from 'vue';
+import { useRoute } from 'vue-router';
+// import { reactive } from 'vue';
 import { routes } from '@/router';
-// const routeItem = useRoute();
-
+const routeItem = useRoute();
+const name = routes.find(i => i.path === routeItem.path).title;
 </script>
 <style lang="scss" scoped>
 .wrap {
@@ -31,19 +38,19 @@ import { routes } from '@/router';
   position: relative;
   bottom: 28px;
   .ant-breadcrumb {
-    color: #fff;
+    // color: #fff;
     span {
-      &:last-child {
-        a {
-          color: #333;
-        }
-      }
+      // &:last-child {
+      //   a {
+      //     color: #333;
+      //   }
+      // }
       a {
-        color: #fff;
+        // color: #fff;
       }
     }
     :deep(.ant-breadcrumb-separator) {
-      color: #fff !important;
+      // color: #fff !important;
     }
   }
 }

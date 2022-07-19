@@ -2,7 +2,7 @@
  * @Author: yuxuewu 18329517675@163.com
  * @Date: 2022-07-06 23:30:13
  * @LastEditors: yuxuewu 18329517675@163.com
- * @LastEditTime: 2022-07-18 22:01:07
+ * @LastEditTime: 2022-07-19 22:06:11
  * @FilePath: \admin-app\src\components\Nav.vue
  * @Description: 人居环境
 -->
@@ -10,6 +10,7 @@
 <div class="wrap">
     <div class="header-wrap">
       <img src="@/assets/2.png" alt="">
+      <Breadcrumb />
     </div>
     <div class="nav-wrap">
       <Nav :menus="menus" v-model:tab="subModel" @handlePage="handlePage"></Nav>
@@ -38,6 +39,7 @@ import { Table, Pagination, Tabs } from 'ant-design-vue';
 import { ref } from 'vue';
 import axios from '@/utils/request';
 import Nav from "@/components/Nav.vue";
+import Breadcrumb from "@/components/breadcrumb.vue";
 const subModel = ref(['1']);
 const html = ref('');
 const list = ref([]);
