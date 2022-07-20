@@ -1,3 +1,11 @@
+<!--
+ * @Author: yuxuewu 18329517675@163.com
+ * @Date: 2022-07-19 21:58:02
+ * @LastEditors: yuxuewu 18329517675@163.com
+ * @LastEditTime: 2022-07-20 23:48:49
+ * @FilePath: \admin-app\src\components\breadcrumb.vue
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
 <template>
   <div class="wrap">
     <Breadcrumb >
@@ -36,21 +44,22 @@ const name = routes.find(i => i.path === routeItem.path).title;
   width: 60%;
   margin: auto;
   position: relative;
-  bottom: 28px;
+  bottom: -53px;
   .ant-breadcrumb {
     // color: #fff;
     span {
+      color: #0b93d0;
       // &:last-child {
       //   a {
-      //     color: #333;
+      //     color: #0b93d0;
       //   }
       // }
       a {
-        // color: #fff;
+        color: #0b93d0;
       }
     }
     :deep(.ant-breadcrumb-separator) {
-      // color: #fff !important;
+      color: #0b93d0 !important;
     }
   }
 }
