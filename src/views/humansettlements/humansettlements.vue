@@ -2,20 +2,20 @@
  * @Author: yuxuewu 18329517675@163.com
  * @Date: 2022-07-06 23:30:13
  * @LastEditors: yuxuewu 18329517675@163.com
- * @LastEditTime: 2022-07-19 22:06:11
+ * @LastEditTime: 2022-07-21 23:54:18
  * @FilePath: \admin-app\src\components\Nav.vue
  * @Description: 人居环境
 -->
 <template>
 <div class="wrap">
     <div class="header-wrap">
-      <img src="@/assets/2.png" alt="">
+      <img :src="banner.top" alt="">
       <Breadcrumb />
     </div>
     <div class="nav-wrap">
       <Nav :menus="menus" v-model:tab="subModel" @handlePage="handlePage"></Nav>
     </div>
-    <div class="content-wrap">
+    <div class="content-wrap" :style="{ backgroundImage: `url(${banner.banner}` }">
       <div v-if="!isTable" class="wrapper" v-html="html"></div>
       <template v-if="isTable">
         <div class="wrapper">
@@ -40,6 +40,7 @@ import { ref } from 'vue';
 import axios from '@/utils/request';
 import Nav from "@/components/Nav.vue";
 import Breadcrumb from "@/components/breadcrumb.vue";
+import banner from '@/utils/banner';
 const subModel = ref(['1']);
 const html = ref('');
 const list = ref([]);

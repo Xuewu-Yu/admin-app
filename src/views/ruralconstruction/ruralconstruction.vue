@@ -2,20 +2,20 @@
  * @Author: yuxuewu 18329517675@163.com
  * @Date: 2022-07-06 23:30:13
  * @LastEditors: yuxuewu 18329517675@163.com
- * @LastEditTime: 2022-07-19 21:08:06
+ * @LastEditTime: 2022-07-21 23:56:40
  * @FilePath: \admin-app\src\components\Nav.vue
  * @Description: 乡村建设
 -->
 <template>
 <div class="wrap">
     <div class="header-wrap">
-      <img src="@/assets/2.png" alt="">
+      <img :src="banner.top" alt="">
       <Breadcrumb />
     </div>
     <div class="nav-wrap">
       <Nav :menus="menus" v-model:tab="subModel" @handlePage="handlePage"></Nav>
     </div>
-    <div class="content-wrap">
+    <div class="content-wrap" :style="{ backgroundImage: `url(${banner.banner}` }">
       <div class="wrapper" v-if="listTotal == 1" v-html="html"></div>
       <NewsList v-if="listTotal > 1" v-model:load="loading" v-model:data="list" v-model:showLoad="showLoad" @loadMore="loadMore" />
     </div>
@@ -27,6 +27,7 @@ import { ref } from 'vue';
 import axios from '@/utils/request';
 import NewsList from '@/components/newsList.vue';
 import Breadcrumb from "@/components/breadcrumb.vue";
+import banner from '@/utils/banner';
 const subModel = ref(['1']);
 const html = ref('');
 const list = ref([]);

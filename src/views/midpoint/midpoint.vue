@@ -2,20 +2,20 @@
  * @Author: yuxuewu 18329517675@163.com
  * @Date: 2022-07-20 21:24:47
  * @LastEditors: yuxuewu 18329517675@163.com
- * @LastEditTime: 2022-07-20 21:48:19
+ * @LastEditTime: 2022-07-21 23:55:18
  * @FilePath: \admin-app\src\views\midpoint\midpoint.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
 <template>
   <div class="wrap">
     <div class="header-wrap">
-      <img src="@/assets/2.png" alt="" />
+      <img :src="banner.top" alt="">
       <Breadcrumb />
     </div>
     <div class="nav-wrap">
       <Nav :menus="menus" v-model:tab="subModel" @handlePage="handlePage"></Nav>
     </div>
-    <div class="content-wrap">
+    <div class="content-wrap" :style="{ backgroundImage: `url(${banner.banner}` }">
       <div class="wrapper">
         <div v-if="html" v-html="html"></div>
         <Empty v-else :description="'暂无数据'" />
@@ -29,6 +29,7 @@ import { Empty } from 'ant-design-vue';
 import { ref } from 'vue';
 import Breadcrumb from "@/components/breadcrumb.vue";
 import axios from '@/utils/request';
+import banner from '@/utils/banner';
 const subModel = ref(['1']);
 const html = ref('');
 const menus = [
