@@ -2,45 +2,85 @@
  * @Author: yuxuewu 18329517675@163.com
  * @Date: 2022-07-07 22:09:03
  * @LastEditors: yuxuewu 18329517675@163.com
- * @LastEditTime: 2022-07-12 18:56:52
+ * @LastEditTime: 2022-07-23 00:52:56
  * @FilePath: \admin-app\src\components\videoCard.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
 <template>
-  <div class="content">
-    <div class="card-wrap">
-      <video
+  <!-- <div class="content">
+    <div class="card-wrap"> -->
+      <!-- <video
+        ref="videoRef"
+        class="video-js vjs-default-skin"
         controls
         preload
-        height="400px"
-        src=""
-      ></video>
-    </div>
-    <List>
-      <List.Item>
-        <List.Item.Meta title="title" description="description">
-        </List.Item.Meta>
-      </List.Item>
-      <List.Item>
-        <List.Item.Meta title="title" description="description">
-        </List.Item.Meta>
-      </List.Item>
-      <List.Item>
-        <List.Item.Meta title="title" description="description">
-        </List.Item.Meta>
-      </List.Item>
-    </List>
-  </div>
+        width="800"
+        height="400"
+      >
+        <source
+          width="800" 
+          height="400"
+          src="http://hls.cntv.lxdns.com/asp/hls/main/0303000a/3/default/978a64ddd3a1caa85ae70a23414e6540/main.m3u8"
+          type="application/x-mpegURL"
+        />
+      </video> -->
+      <video
+        ref="myVideo"
+        class="video-js vjs-default-skin vjs-big-play-centered"
+        controls
+        preload="auto"
+        data-setup="{}"
+        :width="width"
+        height="400"
+      >
+        <source
+          id="source"
+          :src="url"
+          type="application/x-mpegURL"
+        />
+      </video>
+    <!-- </div>
+  </div> -->
 </template>
 <script setup>
-import { Card, List } from "ant-design-vue";
+import { nextTick, onMounted, ref, onBeforeUnmount } from 'vue';
+import axios from '@/utils/request';
+const myVideo = ref();
+const player = ref();
+const props = defineProps({
+  width: {
+    type: String,
+    default: '752',
+  },
+  url:{
+    type: String,
+    default: '',
+  }
+})
+axios.request({ url: 'api/monitor/monitorList', method: 'post',data: { list_rows: 10, page:1 } })
+onMounted(async () => {
+  await nextTick();
+  player.value = videojs(myVideo.value, {
+    bigPlayButton: true,
+    textTrackDisplay: false,
+    posterImage: false,
+    errorDisplay: false,
+  });
+  player.value.play();
+});
+onBeforeUnmount(() => {
+  player.value.dispose();
+});
+const disposeFunc = () => {
+  player.value?.dispose();
+}
 </script>
 <style lang="scss" scoped>
 .content {
-  width: 80%;
-  padding-top: 20px;
-  padding-bottom: 70px;
-  margin: 0 auto;
+  // width: 80%;
+  // padding-top: 20px;
+  // padding-bottom: 70px;
+  // margin: 0 auto;
   .card-wrap {
     // width: 800px;
     // height: 400px;
