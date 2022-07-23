@@ -2,7 +2,7 @@
  * @Author: yuxuewu 18329517675@163.com
  * @Date: 2022-07-06 23:30:13
  * @LastEditors: yuxuewu 18329517675@163.com
- * @LastEditTime: 2022-07-21 23:54:18
+ * @LastEditTime: 2022-07-23 14:00:54
  * @FilePath: \admin-app\src\components\Nav.vue
  * @Description: 人居环境
 -->
@@ -27,7 +27,7 @@
           <Table :dataSource="list" :columns="columns" :scroll="{ x: 'max-content' }" :pagination="false">
           </Table>
           <div class="pagination-box">
-            <Pagination v-model:current="currentPage" :showSizeChanger="false" :total="Total" :showTotal="total => `共${total}条`" @change="handlePage('1')" />
+            <Pagination v-model:current="currentPage" :showSizeChanger="false" :total="Total" :showTotal="total => `共${total}条`" @change="handlePage('1', 1)" />
           </div>
         </div>
       </template>
@@ -128,7 +128,10 @@ const menus = [
 ];
 // axios.post(menus[0].url);
 columns.value = menus.find(i => i.key == '1').tabs[`c${active.value}`];
-const handlePage = async (key) => {
+const handlePage = async (key, bool) => {
+  if (!bool) {
+    currentPage.value = 1;
+  }
   const item = menus.find(item => item.key === key);
   let url = '';
   if (item.url) {
