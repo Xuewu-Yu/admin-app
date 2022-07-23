@@ -2,7 +2,7 @@
  * @Author: yuxuewu 18329517675@163.com
  * @Date: 2022-07-06 23:30:13
  * @LastEditors: yuxuewu 18329517675@163.com
- * @LastEditTime: 2022-07-12 22:57:07
+ * @LastEditTime: 2022-07-23 14:16:25
  * @FilePath: \admin-app\src\components\Nav.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -14,7 +14,7 @@
     <Tabs.TabPane key="2" tab="养殖合作社">
     </Tabs.TabPane>
   </Tabs>
-   <Table :dataSource="list" :columns="columns" :scroll="{ x: 'max-content' }" :pagination="false">
+   <Table :dataSource="list" :columns="columns" :scroll="{ x: 'max-content' }" :pagination="false" :rowClassName="rowClassName">
    <template #bodyCell="{ column, record }">
     <template v-if="column.key === 'poor_households'">
       {{ record[column.key] === '1' ? '是' : '否' }}
@@ -30,6 +30,7 @@
 import { Tabs, Table, Pagination } from 'ant-design-vue';
 import { ref } from 'vue';
 import axios from 'axios';
+import { rowClassName } from '@/utils/function';
 const active = ref('1');
 const list = ref([]);
 const currentPage = ref();

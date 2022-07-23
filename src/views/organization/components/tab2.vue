@@ -2,7 +2,7 @@
  * @Author: yuxuewu 18329517675@163.com
  * @Date: 2022-07-14 23:40:58
  * @LastEditors: yuxuewu 18329517675@163.com
- * @LastEditTime: 2022-07-17 19:10:56
+ * @LastEditTime: 2022-07-23 14:17:55
  * @FilePath: \admin-app\src\views\ruralgovernance\components\tab2.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -21,6 +21,7 @@
       :columns="columns"
       :scroll="{ x: 'max-content' }"
       :pagination="false"
+      :rowClassName="rowClassName"
     >
       <template #bodyCell="{ column, record }">
         <template v-if="column.dataIndex === 'sex'">
@@ -48,6 +49,7 @@
 import { Table, Pagination, Tabs, Empty } from "ant-design-vue";
 import { ref } from 'vue';
 import axios from '@/utils/request';
+import { rowClassName } from '@/utils/function';
 const active = ref('1');
 const list = ref([]);
 const html = ref('');

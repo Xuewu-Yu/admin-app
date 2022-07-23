@@ -2,7 +2,7 @@
  * @Author: yuxuewu 18329517675@163.com
  * @Date: 2022-07-06 23:30:13
  * @LastEditors: yuxuewu 18329517675@163.com
- * @LastEditTime: 2022-07-23 14:00:54
+ * @LastEditTime: 2022-07-23 14:16:59
  * @FilePath: \admin-app\src\components\Nav.vue
  * @Description: 人居环境
 -->
@@ -24,7 +24,7 @@
             <Tabs.TabPane tab="2021年系在建(厕屋)" key="2"></Tabs.TabPane>
             <Tabs.TabPane tab="2022年系在建(厕屋)" key="3"></Tabs.TabPane>
           </Tabs>
-          <Table :dataSource="list" :columns="columns" :scroll="{ x: 'max-content' }" :pagination="false">
+          <Table :dataSource="list" :columns="columns" :scroll="{ x: 'max-content' }" :pagination="false" :rowClassName="rowClassName">
           </Table>
           <div class="pagination-box">
             <Pagination v-model:current="currentPage" :showSizeChanger="false" :total="Total" :showTotal="total => `共${total}条`" @change="handlePage('1', 1)" />
@@ -41,6 +41,7 @@ import axios from '@/utils/request';
 import Nav from "@/components/Nav.vue";
 import Breadcrumb from "@/components/breadcrumb.vue";
 import banner from '@/utils/banner';
+import { rowClassName } from '@/utils/function';
 const subModel = ref(['1']);
 const html = ref('');
 const list = ref([]);

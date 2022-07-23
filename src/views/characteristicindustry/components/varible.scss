@@ -46,3 +46,10 @@
     }
   }
 }
+:deep(.ant-table) {
+  .ant-table-tbody {
+    .line-dark {
+      background: rgb(245, 247,  250);
+    }
+  }
+}
