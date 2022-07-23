@@ -2,22 +2,22 @@
  * @Author: yuxuewu 18329517675@163.com
  * @Date: 2022-07-06 23:30:13
  * @LastEditors: yuxuewu 18329517675@163.com
- * @LastEditTime: 2022-07-18 00:19:11
+ * @LastEditTime: 2022-07-23 11:02:09
  * @FilePath: \admin-app\src\components\Nav.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
 <template>
 <div class="wrap">
     <div class="header-wrap">
-      <img src="http://fangkang.top/uploads/20220716/2deee211f6d6487de1feebf8249ff03f.png" alt="">
+      <img :src="banner.top" alt="">
     </div>
     <div class="nav-wrap">
       <Nav :menus="menus" v-model:tab="subModel"></Nav>
     </div>
-    <div class="content-wrap">
+    <div class="content-wrap" :style="{ backgroundImage: `url(${banner.banner}` }">
       <Tab1 v-if="subModel.includes('1')" />
       <Tab2 v-else-if="subModel.includes('2')" />
-      <Tab3 v-else-if="subModel.includes('3')" />
+      <!-- <Tab3 v-else-if="subModel.includes('3')" /> -->
       <Tab4 v-else-if="subModel.includes('4')" />
     </div>
   </div>
@@ -28,8 +28,9 @@ import { useRouter } from 'vue-router';
 import { ref } from 'vue';
 import Tab1 from '@/components/home.vue';
 import Tab2 from '@/components/boardCard.vue';
-import Tab3 from '@/components/videoCard.vue';
+// import Tab3 from '@/components/videoCard.vue';
 import Tab4 from '@/components/newsList.vue';
+import banner from '@/utils/banner';
 // const router = useRouter();
 const subModel = ref(['1']);
 
@@ -85,7 +86,7 @@ const handlePage = ({ key }) => {
     background: #b10100;
   }
   .content-wrap {
-    background: url('https://27838991.s61i.faiusr.com/2/AD0Ij5SjDRACGAAg8MzmiQYouobRUTCADziJFA.jpg');
+    // background: url('https://27838991.s61i.faiusr.com/2/AD0Ij5SjDRACGAAg8MzmiQYouobRUTCADziJFA.jpg');
     background-origin: content-box;
     background-repeat: no-repeat;
     background-position: top;
