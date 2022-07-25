@@ -2,7 +2,7 @@
  * @Author: yuxuewu 18329517675@163.com
  * @Date: 2022-07-23 11:18:23
  * @LastEditors: yuxuewu 18329517675@163.com
- * @LastEditTime: 2022-07-24 20:48:39
+ * @LastEditTime: 2022-07-25 09:51:57
  * @FilePath: \admin-app\src\views\videoGroup\videoGroup.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -44,22 +44,22 @@ const listData = computed(() => {
 </script>
 <style lang="scss" scoped>
 .wrap {
-  width: 80%;
+  width: 60%;
   padding: 40px 16px 16px;
   display: flex;
   // justify-content: space-evenly;
   flex-flow: wrap row;
-  // gap: 10px;
+  gap: 50px;
   margin: auto;
   .video-item {
     // width: 20%;
     // height: 100px;
     text-align: center;
     position: relative;
-    width: calc((100% - 30px) / 3);
+    width: calc((100% - 100px) / 3);
     display: flex;
     justify-content: center;
-    margin-top: 10px;
+    // margin-top: 20px;
     .title {
       position: absolute;
       color:#fff;
@@ -67,7 +67,7 @@ const listData = computed(() => {
       width: 100%;
       z-index:999;
       margin: 0;
-      width: 300px;
+      // width: 300px;
       // text-align: left;
       // text-indent: 10px;
     }
