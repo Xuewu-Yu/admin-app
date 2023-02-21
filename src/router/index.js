@@ -6,7 +6,7 @@
  * @FilePath: \admin-app\src\router\index.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
-import Index from '@/views/index/index.vue';
+import Index from '@/views/index2/index2.vue';
 // import HelloWorld from '@/components/HelloWorld.vue';
 import oldHome from '@/views/oldHome/oldHome.vue';
 export const routes = [
